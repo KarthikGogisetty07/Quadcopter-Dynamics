@@ -1,6 +1,28 @@
 # Quadcopter Dynamics
 
-> Introduction : Quadcopter, also known as quadrotor, is a UAV with four rotors. The rotors
+### Table of Contents 
+- `Introduction`
+
+- `Body Frame`
+
+- `Inertial Frame`
+
+- `Rotational Matrix`
+
+- `Angular Velocities`
+
+- `Newton - Euler Equations`
+
+- `Code`
+
+- `Result`
+
+- `Conclusion`
+
+
+#### Introduction
+
+Quadcopter, also known as quadrotor, is a UAV with four rotors. The rotors
 are directed upwards and they are placed in a Cross formation with equal distance
 from the center of mass of the quadcopter. The quadcopter is controlled by adjusting
 the angular velocities of the rotors which are spun by electrical DC motors. Quadcopter
@@ -47,5 +69,47 @@ In the code the Aerodynamic drag is considered where Ax, Ay, Az are the drag for
          [z**]      [1]       [    CθCφ     ]       [0 0 Az] [z*]
          
          // where x**, y**, z** are linear acceleration in xyz directions and x*, y*, z* are the linear velocities...
+The angular accelerations (p*, q*, r*) can be formulated as :
+          
+            [p*]   [     L(F2 - F4)    ]   [p]     [p]
+        (I) [q*] = [     L(F3 - F1)    ] - [q] x I [q]
+            [r*]   [ M1 - M2 + M3 - M4 ]   [r]     [r]
+          
+#### Code 
 
+In the code, the Thrust is been caluculated as
+          
+       T = (g + Kd ( zd* − z*) + Kp (zd − z)) m/CφCθ
+       
+       // Where zd = desired state of z coordinate and zd* is the desired linear velocity 
+       // The above equation is considered as a PD controller
+       
+Similarly, Torques for roll pitch and yaw are τφ, τθ, τψ
          
+        τφ = (Kd(φd* − φ*)+ Kp(φd − φ))Ixx,
+        τθ = (Kd(θd* − θ*)+ Kp(θd − θ))Iyy,
+        τψ = (Kd(ψd* − ψ*)+ Kp(ψd − ψ))Izz.
+        
+in which also the gravity g, and mass m and moments of inertia I of the quadcopter are considered.
+The correct angular velocities of rotors ωi(controlsignal to the DC motors) and (i = 1, 2, 3, 4) can be calculated as : 
+
+        controlsignal(1) = T/4k − τθ/2kl − τψ/4b
+        controlsignal(2) = T/4k − τφ/2kl + τψ/4b
+        controlsignal(3) = T/4k + τθ/2kl − τψ/4b
+        controlsignal(4) = T/4k + τφ/2kl + τψ/4b
+
+#### Result 
+
+<p align="center">
+  <img width="500" src="https://user-images.githubusercontent.com/69350191/99878243-0fc8d280-2c2a-11eb-96b8-4dcb77c2242e.PNG">
+</p>
+
+       // Here the desired state.z is set to 10 unit. Hence we can observe that the blue line stablizes at 10 or ~10 units from 5 sec and hovers at the desired point. 
+       // Initially [θ φ φ] are set at 45 degrees and are desired to be at 0 degree after reaching the setpoint... 
+       
+#### Conclusion 
+
+ The mathematical model of quadcopter dynamics was presented and the differential equations
+  were derived from the Newton-Euler and the Euler-Lagrange equations. The model
+  was verified by simulating the flight of a quadcopter with Matlab. Stabilisation of
+  attitude of the quadcopter was done by utilising a PD controller. 
