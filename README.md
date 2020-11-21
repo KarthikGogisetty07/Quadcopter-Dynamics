@@ -90,7 +90,7 @@ Similarly, Torques for roll pitch and yaw are τφ, τθ, τψ
         τθ = (Kd(θd* − θ*)+ Kp(θd − θ))Iyy,
         τψ = (Kd(ψd* − ψ*)+ Kp(ψd − ψ))Izz.
         
-in which also the gravity g, and mass m and moments of inertia I of the quadcopter are considered.
+In the above equations gravity g, and mass m and moments of inertia I of the quadcopter are considered.
 The correct angular velocities of rotors ωi(controlsignal to the DC motors) and (i = 1, 2, 3, 4) can be calculated as : 
 
         controlsignal(1) = T/4k − τθ/2kl − τψ/4b
@@ -98,7 +98,7 @@ The correct angular velocities of rotors ωi(controlsignal to the DC motors) and
         controlsignal(3) = T/4k + τθ/2kl − τψ/4b
         controlsignal(4) = T/4k + τφ/2kl + τψ/4b
 
-#### Result 
+#### Result - Linear Displacement and Angular Displacement 
 
 <p align="center">
   <img width="500" src="https://user-images.githubusercontent.com/69350191/99878243-0fc8d280-2c2a-11eb-96b8-4dcb77c2242e.PNG">
@@ -109,7 +109,7 @@ The correct angular velocities of rotors ωi(controlsignal to the DC motors) and
        
 #### Conclusion 
 
- The mathematical model of quadcopter dynamics was presented and the differential equations
-  were derived from the Newton-Euler and the Euler-Lagrange equations. The model
-  was verified by simulating the flight of a quadcopter with Matlab. Stabilisation of
-  attitude of the quadcopter was done by utilising a PD controller. 
+The mathematical model of quadcopter dynamics was presented and the differential equations
+were derived from the Newton-Euler and the Euler-Lagrange equations. The model
+was verified by simulating the flight of a quadcopter with Matlab. Stabilisation of
+attitude of the quadcopter was done by utilising a PD controller. 
