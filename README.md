@@ -8,10 +8,10 @@ is a typical design for small unmanned aerial vehicles (UAV) because of the simp
 structure. Quadcopters are used in surveillance, search and rescue, construction
 inspections and several other applications.
 
-##### Body Frame
+#### Body Frame
 Body Frame It is fixed to the body which is being analyzed. The axis can be oriented arbitrarily, but are generally chosen to be the principal axes of inertia. The body (to which the body frame is fixed) as observed with respect to the body frame is stationary.
 
-##### Inertial Frame 
+#### Inertial Frame 
 An inertial frame of reference can be defined in analytical terms as a frame of reference that describes time and space homogeneously, isotropically, and in a time-independent manner. Conceptually, the physics of a system in an inertial frame have no causes external to the system. 
 
 <p align="center">
@@ -24,10 +24,11 @@ An inertial frame of reference can be defined in analytical terms as a frame of 
     R =  [SψCθ SψSθSφ + CψCφ SψSθCφ − CψSφ]
          [−Sθ           CθSφ          CθCφ]
 
- The rotation matrix R is orthogonal thus, 
+###### The rotation matrix R is orthogonal thus, 
 ###### <p>R<sup>-1</sup> = R <sup>T</sup></p>   
-which is the rotation matrix from the inertial frame to the body frame.
+###### which is the rotation matrix from the inertial frame to the body frame.
 
+#### Angular Velocities 
 The Transformation Matrix of Angular Velocities from body to inertial frame and viceversa are written as below where [φ* θ* ψ*] are angular velocites in the body frame and [p q r] are angular velocities in inertial frame. 
 
          [φ*]   [1  SφTθ   CφT ][p]
@@ -38,6 +39,7 @@ The Transformation Matrix of Angular Velocities from body to inertial frame and 
          [q] = [0  Cφ  CθSφ][θ*]
          [r]   [0 −Sφ  CθCφ][ψ*]
          
+#### Newton - Euler Equations
 In the code the Aerodynamic drag is considered where Ax, Ay, Az are the drag force coefficients for velocities in the corresponding directions of the inertial frame. After considering the drag the linear acceleration will be caluculated as follows : 
 
          [x**]      [0]       [CψSθCφ + SψSφ]       [Ax 0 0] [x*]
