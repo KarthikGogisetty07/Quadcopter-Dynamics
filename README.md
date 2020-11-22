@@ -31,7 +31,7 @@ structure. Quadcopters are used in surveillance, search and rescue, construction
 inspections and several other applications.
 
 #### Body Frame
-Body Frame It is fixed to the body which is being analyzed. The axis can be oriented arbitrarily, but are generally chosen to be the principal axes of inertia. The body (to which the body frame is fixed) as observed with respect to the body frame is stationary.
+A Body Fame is fixed to the body which is being analyzed. The axis can be oriented arbitrarily, but are generally chosen to be the principal axes of inertia. The body (to which the body frame is fixed) as observed with respect to the body frame is stationary.
 
 #### Inertial Frame 
 An inertial frame of reference can be defined in analytical terms as a frame of reference that describes time and space homogeneously, isotropically, and in a time-independent manner. Conceptually, the physics of a system in an inertial frame have no causes external to the system. 
@@ -46,9 +46,9 @@ An inertial frame of reference can be defined in analytical terms as a frame of 
     R =  [SψCθ SψSθSφ + CψCφ SψSθCφ − CψSφ]
          [−Sθ           CθSφ          CθCφ]
 
-###### The rotation matrix R is orthogonal thus, 
-###### <p>R<sup>-1</sup> = R <sup>T</sup></p>   
-###### which is the rotation matrix from the inertial frame to the body frame.
+> The rotation matrix R is orthogonal thus, 
+> <p>R<sup>-1</sup> = R <sup>T</sup></p>   
+> which is the rotation matrix from the inertial frame to the body frame.
 
 #### Angular Velocities 
 The Transformation Matrix of Angular Velocities from body to inertial frame and viceversa are written as below where [φ* θ* ψ*] are angular velocites in the body frame and [p q r] are angular velocities in inertial frame. 
